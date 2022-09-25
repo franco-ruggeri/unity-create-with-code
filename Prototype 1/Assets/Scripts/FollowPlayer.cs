@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
+    public KeyCode switchKey = KeyCode.F;
     
     private List<Vector3> offsets = new List<Vector3>
     {
@@ -22,8 +23,7 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool keyPressed = Input.GetButtonDown("Fire1");
-        if (keyPressed)
+        if (Input.GetKeyDown(switchKey))
             offsetId = (offsetId + 1) % offsets.Count;
     }
 
